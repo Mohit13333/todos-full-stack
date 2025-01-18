@@ -124,11 +124,19 @@ const todoStatus = async (req, res) => {
 
 // sort todo by due date or status
 const getSortedTodos = async (req, res) => {
+<<<<<<< HEAD
   const { byDueDate, isTaskCompleted } = req.query;
   const userId = req.user._id;
 
   try {
     if (!byDueDate && !isTaskCompleted) {
+=======
+  const { byDuedate, istaskCompleted } = req.query;
+  const userId = req.user._id;
+
+  try {
+    if (!byDuedate && !istaskCompleted) {
+>>>>>>> d13ba7f87b412b4c79f8a157251b76583e9f8612
       return res.status(400).json({
         message:
           "At least one sorting parameter is required.",
@@ -136,9 +144,15 @@ const getSortedTodos = async (req, res) => {
     }
 
     const sortCriteria = {};
+<<<<<<< HEAD
     if (byDueDate) sortCriteria.dueDate = byDueDate === "desc" ? -1 : 1;
     if (isTaskCompleted)
       sortCriteria.isCompleted = isTaskCompleted === "desc" ? -1 : 1;
+=======
+    if (byDuedate) sortCriteria.dueDate = byDuedate === "desc" ? -1 : 1;
+    if (istaskCompleted)
+      sortCriteria.isCompleted = istaskCompleted === "desc" ? -1 : 1;
+>>>>>>> d13ba7f87b412b4c79f8a157251b76583e9f8612
 
     const todos = await Todo.find({ owner: userId }).sort(sortCriteria);
 
