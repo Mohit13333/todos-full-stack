@@ -7,14 +7,10 @@ import connectDB from "./utils/connectDB.js";
 dotenv.config();
 const app = express();
 app.use(express.json());
-<<<<<<< HEAD
 app.use(cors({
   origin: "https://todo-typescript-web.netlify.app",
   methods: "GET,PUT,POST,DELETE",
 }));
-=======
-app.use(cors());
->>>>>>> d13ba7f87b412b4c79f8a157251b76583e9f8612
 app.use("/api/auth", authRouter);
 app.use("/api/todo", todoRouter);
 
