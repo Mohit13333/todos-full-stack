@@ -43,24 +43,24 @@ const TodoItems: React.FC<TodoItemsProps> = ({
           className="px-4 py-2 bg-gray-900 text-white rounded-md mx-2"
           onClick={() => setSearchParams({})}
         >
-          Show All
+          Show All Tasks
         </button>
         <button
           type="button"
           className="px-4 py-2 bg-gray-900 text-white rounded-md mx-2"
           onClick={() => setSearchParams({ filter: "completed" })}
         >
-          Show Completed
+          Show Completed Tasks
         </button>
         <button
           type="button"
           className="px-4 py-2 bg-gray-900 text-white rounded-md mx-2"
           onClick={() => setSearchParams({ filter: "incomplete" })}
         >
-          Show Incomplete
+          Show Incomplete Tasks
         </button>
       </div>
-
+      <div className="overflow-y-auto">
       <table className="min-w-full bg-white border-collapse">
         <thead>
           <tr className="bg-gray-100 border-b border-gray-200">
@@ -158,6 +158,7 @@ const TodoItems: React.FC<TodoItemsProps> = ({
           )}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

@@ -136,7 +136,10 @@ const Todos: React.FC = () => {
     }
   };
   // Fetching sorted tasks
-  const fetchSortedTasks = async (byDueDate: string, isTaskCompleted: string) => {
+  const fetchSortedTasks = async (
+    byDueDate: string,
+    isTaskCompleted: string
+  ) => {
     try {
       const response = await axios.get(
         `${import.meta.env.VITE_BACKEND_URI}/api/todo/getSortedTodos`,
@@ -181,17 +184,13 @@ const Todos: React.FC = () => {
             handleInputChange={handleInputChange}
             handleFormSubmit={handleFormSubmit}
           />
-          <section className="mx-auto max-w-screen-xl p-3">
-            <TodoFilters fetchSortedTasks={fetchSortedTasks} />
-          </section>
-          <section className="mx-auto max-w-screen-xl p-3">
-            <TodoItems
-              tasks={tasks}
-              handleTaskStatus={handleTaskStatus}
-              handleEditTask={handleEditTask}
-              deleteTask={deleteTask}
-            />
-          </section>
+          <TodoFilters fetchSortedTasks={fetchSortedTasks} />
+          <TodoItems
+            tasks={tasks}
+            handleTaskStatus={handleTaskStatus}
+            handleEditTask={handleEditTask}
+            deleteTask={deleteTask}
+          />
           <Footer />
         </div>
       ) : (
